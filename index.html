@@ -9,6 +9,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
     <!-- Bootstrap CSS -->
@@ -29,6 +30,18 @@
         /* * {
         outline: 2px solid red;
     } */
+        @media (min-width: 992px) {
+            .articles img {
+                max-width: 10%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .articles img {
+                max-width: 10%;
+            }
+        }
+
         hr {
             border: 0;
             clear: both;
@@ -45,7 +58,7 @@
         .articles img {
             border-radius: 20px;
             max-width: 100%;
-            /*min-width: 100%;*/
+            min-width: 100%;
         }
 
         .time {
@@ -56,6 +69,38 @@
         #Tops {
             box-shadow: 0px 2px 5px gray;
         }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: blue;
+        }
+
+        .navbar-collapse.collapse.show {
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: none;
+            border: none;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        /*#collapsibleNavbar,
+        .collapse,
+        .navbar-collapse {
+            max-width: 280px;
+            overflow-x: auto;
+        }*/
+
+        /*
+        i.nav-item.fas.fa-search:hover {
+            color: blue;
+        }
+        */
     </style>
 </head>
 
@@ -63,15 +108,45 @@
 
     <!--Navbar-->
     <nav id="Tops" class="navbar navbar-expand-md bg-light navbar-light fixed-top">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#Tops"><img
-                src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
-                alt="logo">&nbsp;News</a>
 
         <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button id="toggler" class="navbar-toggler mr-auto" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Brand -->
+        <a id="brand" class="navbar-brand mr-auto" href="#Tops"><img
+                src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
+                alt="logo">&nbsp;News
+        </a>
+
+        <!--Search Icon-->
+        <button class="mr-auto" id="searchIcon" style="border: none;padding: 0%;background: none;"
+            onclick="openSearch()">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <!--Search Bar-->
+        <!--<input id="searchbar" style="display: none;" type="text" placeholder="Search News">-->
+        <div style="padding:0%;">
+            <div id="searchbar" style="display: none;" class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span style="background:none;" class="input-group-text">
+                        <button onclick="bringback()" style="padding:0;border:none;background:none;box-shadow: none;">
+                            <i style="border: none; background: none; box-shadow: none;" class="fas fa-arrow-left"></i>
+                        </button>
+                    </span>
+                    <span>
+                        <form action=""><input id="srch" style="width: 80%;" type="text" class="form-control"
+                                placeholder="Search" name="search"></form>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--Sign in button-->
+        <button class="btn btn-primary" onclick="signin()">Sign in</button>
 
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -530,7 +605,33 @@
 
     <!--Script-->
     <script>
+        //Search Bar
+        function openSearch() {
+            document.getElementById("searchbar").style.display = "block";
+            document.getElementById("brand").style.display = "none";
+            document.getElementById("searchIcon").style.display = "none";
+            document.getElementById("toggler").style.display = "none";
+        }
 
+        //Bring back
+        function bringback() {
+            document.getElementById("searchbar").style.display = "none";
+            document.getElementById("brand").style.display = "block";
+            document.getElementById("searchIcon").style.display = "block";
+            document.getElementById("toggler").style.display = "block";
+        }
+
+        //Restore
+        $(document).ready(function () {
+            $(".nav-link").click(function () {
+                $(".collapse").collapse('hide');
+            });
+        });
+
+        //Sign-in
+        function signin() {
+            window.location.href = "https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Fnews.google.com%2F%3Fhl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&followup=https%3A%2F%2Fnews.google.com%2F%3Fhl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&hl=en-IN&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+        }
 
         //Fetch news function
         async function fetchNews() {
