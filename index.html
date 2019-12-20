@@ -30,16 +30,27 @@
         /* * {
         outline: 2px solid red;
     } */
-        @media (min-width: 992px) {
-            .articles img {
-                max-width: 10%;
+        @media only screen and (min-width: 992px) {
+            .nav-item {
+                display: none;
             }
-        }
 
-        @media (min-width: 1200px) {
-            .articles img {
-                max-width: 10%;
+            #searchbar {
+                display: block;
             }
+
+            .articles,
+            .articles img,
+            .articles h6,
+            .articles .container .row i,
+            .articles .container .row p {
+                max-width: 30% !important;
+                min-width: 30% !important;
+                font-size: 80%;
+            }
+
+            /*Redirect to a different website using javascript*/
+
         }
 
         hr {
@@ -146,7 +157,7 @@
         </div>
 
         <!--Sign in button-->
-        <button class="btn btn-primary" onclick="signin()">Sign in</button>
+        <button id="signinz" class="btn btn-primary" onclick="signin()">Sign in</button>
 
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -205,19 +216,25 @@
                     <a class="nav-link" href="#">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Get the Android app&nbsp;<i class="fas fa-directions fa-xs"></i></a>
+                    <a class="nav-link"
+                        href="https://play.google.com/store/apps/details?id=com.google.android.apps.magazines&referrer=news.google.com?utm_source=web&utm_medium=menu&utm_campaign=side_menu_promotion">Get
+                        the Android app&nbsp;<i class="fas fa-directions fa-xs"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Send Feedback</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help&nbsp;<i class="fas fa-directions fa-xs"></i></a>
+                    <a class="nav-link"
+                        href="https://support.google.com/googlenews?p=web&hl=en-IN&authuser=0#topic=7688381">Help&nbsp;<i
+                            class="fas fa-directions fa-xs"></i></a>
                 </li>
                 <li class="nav-item">
                     <footer><a style="text-decoration: none;color: gray;font-size: 13px;"
-                            href="#">Privacy</a>&nbsp;·&nbsp;<a
-                            style="text-decoration: none;color: gray;font-size: 13px;" href="#">Terms</a>&nbsp;·&nbsp;<a
-                            style="text-decoration: none;color: gray;font-size: 13px;" href="#">About Google</a>
+                            href="https://policies.google.com/privacy?hl=en-GB">Privacy</a>&nbsp;·&nbsp;<a
+                            style="text-decoration: none;color: gray;font-size: 13px;"
+                            href="https://policies.google.com/terms?hl=en-GB">Terms</a>&nbsp;·&nbsp;<a
+                            style="text-decoration: none;color: gray;font-size: 13px;"
+                            href="https://about.google/">About Google</a>
                     </footer>
                 </li>
             </ul>
@@ -225,7 +242,6 @@
     </nav>
 
     <!--    <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>    -->
-
     <br><br><br><br>
 
     <!--Body of News-->
@@ -234,6 +250,7 @@
     <div class="container">
         <h5 id="Headlines">Headlines</h5>
     </div>
+
 
     <div style="margin: 30px ;">
         <a class="articles" id="1" style="text-decoration: none;color: black;" href="">
@@ -275,7 +292,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Headlines</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Headlines</a></center>
     </div>
 
     <hr>
@@ -327,7 +346,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from India</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNRE55YXpBU0FtVnVLQUFQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from India</a></center>
     </div>
 
     <hr>
@@ -379,7 +400,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from World</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from World</a></center>
     </div>
 
     <hr>
@@ -431,7 +454,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Business</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Business</a></center>
     </div>
 
     <hr>
@@ -471,7 +496,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Technology</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Technology</a></center>
     </div>
 
     <hr>
@@ -499,7 +526,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Entertainment</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNREpxYW5RU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Entertainment</a></center>
     </div>
 
     <hr>
@@ -527,7 +556,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Sports</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Sports</a></center>
     </div>
 
     <hr>
@@ -555,7 +586,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Science</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp0Y1RjU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Science</a></center>
     </div>
 
     <hr>
@@ -583,7 +616,9 @@
     <hr>
 
     <div class="container">
-        <center><a href="#">Read more stories from Health</a></center>
+        <center><a
+                href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen">Read
+                more stories from Health</a></center>
     </div>
 
     <hr>
@@ -611,6 +646,7 @@
             document.getElementById("brand").style.display = "none";
             document.getElementById("searchIcon").style.display = "none";
             document.getElementById("toggler").style.display = "none";
+            document.getElementById("signinz").style.display = "none";
         }
 
         //Bring back
@@ -619,6 +655,7 @@
             document.getElementById("brand").style.display = "block";
             document.getElementById("searchIcon").style.display = "block";
             document.getElementById("toggler").style.display = "block";
+            document.getElementById("signinz").style.display = "block";
         }
 
         //Restore
@@ -632,6 +669,14 @@
         function signin() {
             window.location.href = "https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Fnews.google.com%2F%3Fhl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&followup=https%3A%2F%2Fnews.google.com%2F%3Fhl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&hl=en-IN&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
         }
+
+        //Mobile detection
+        window.setInterval(function () {
+            /// call your function here
+            if (screen.width >= 700) {
+                window.location = "desktop.html";
+            }
+        }, 5000);
 
         //Fetch news function
         async function fetchNews() {
